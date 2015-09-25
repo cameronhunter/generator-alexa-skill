@@ -19,7 +19,7 @@ Make a new directory, and `cd` into it:
 $ mkdir alexa-skill-hello-world && cd $_
 ```
 
-You're now ready to generate a package!
+You're now ready to generate a skill!
 
 ## The generator
 
