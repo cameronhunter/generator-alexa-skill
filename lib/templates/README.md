@@ -1,1 +1,1 @@
-# alexa-skill-<%= name %>
+# alexa-skill-<%= fileName %>

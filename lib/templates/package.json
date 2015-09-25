@@ -1,5 +1,5 @@
 {
-  "name": "alexa-skill-<%= name %>",
+  "name": "alexa-skill-<%= fileName %>",
   "version": "0.0.0",
   "main": "dist/index.js",
   "scripts": {
