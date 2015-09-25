@@ -2,7 +2,7 @@
   "name": "generator-alexa-skill",
   "version": "0.1.2",
   "description": "Generate an Alexa Skill ready for AWS Lambda",
-  "main": "./index.js",
+  "main": "lib/generators/app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,5 +25,5 @@
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  },
+  }
 }
