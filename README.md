@@ -53,6 +53,10 @@ Produces a package named `alexa-skill-hello-world` with the following output:
 └── webpack.config.js
 ```
 
+Add your skill logic into `lib/<package-name>.js`. It's an ES6 class and each
+function is an intent on your alexa skill. See [alexa-lambda-skill](https://github.com/cameronhunter/alexa-lambda-skill)
+for more details.
+
 ## Building for AWS Lambda
 
 To build your skill for AWS Lambda:
