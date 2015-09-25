@@ -1,6 +1,6 @@
 {
   "name": "generator-alexa-skill",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Generate an Alexa Skill ready for AWS Lambda",
   "main": "./index.js",
   "scripts": {
