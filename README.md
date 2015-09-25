@@ -26,10 +26,10 @@ You're now ready to generate a skill!
 To generate a new skill:
 
 ```
-$ yo alexa-skill <package-name>
+$ yo alexa-skill <skill-name>
 ```
 
-Add your skill logic into `lib/<package-name>.js`. It's an ES6 class and each
+Add your skill logic into `lib/<skill-name>.js`. It's an ES6 class and each
 function is an intent on your alexa skill. See [alexa-lambda-skill](https://github.com/cameronhunter/alexa-lambda-skill)
 for more details.
 
@@ -65,6 +65,6 @@ To build your skill for AWS Lambda:
 $ npm run build
 ```
 
-This creates a file `dist/<package-name>.js` which is the compiled and minified
+This creates a file `dist/<skill-name>.js` which is the compiled and minified
 skill. You can copy and paste the contents of this file directly into the AWS
-Lambda console.
+Lambda console. The module exports a single handler as `exports.<skill-name>`.
