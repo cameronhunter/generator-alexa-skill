@@ -29,7 +29,7 @@ function Generator() {
   }
   this.genVersion = pkg.version;
 
-  this.sourceRoot(path.join(__dirname, './templates/'));
+  this.sourceRoot(path.join(__dirname, 'templates'));
 
   this.on('end', function () {
     this.installDependencies({ skipInstall: this.options['skip-install'] });

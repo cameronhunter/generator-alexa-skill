@@ -1,6 +1,6 @@
 {
   "name": "generator-alexa-skill",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate an Alexa Skill ready for AWS Lambda",
   "main": "./index.js",
   "scripts": {
@@ -22,5 +22,8 @@
   "license": "MIT",
   "dependencies": {
     "yeoman-generator": "^0.20.3"
-  }
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  },
 }
