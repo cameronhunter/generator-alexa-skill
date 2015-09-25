@@ -15,7 +15,8 @@
     "amazon",
     "yo",
     "yeoman",
-    "generator"
+    "generator",
+    "yeoman-generator"
   ],
   "author": "Cameron Hunter",
   "license": "MIT",
