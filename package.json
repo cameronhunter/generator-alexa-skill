@@ -1,0 +1,22 @@
+{
+  "name": "generator-alexa-skill",
+  "version": "0.1.0",
+  "description": "Generate an Alexa Skill ready for AWS Lambda",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alexa",
+    "lambda",
+    "skill",
+    "aws",
+    "echo",
+    "amazon",
+    "yo",
+    "yeoman",
+    "generator"
+  ],
+  "author": "Cameron Hunter",
+  "license": "MIT"
+}
