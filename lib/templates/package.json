@@ -1,9 +1,10 @@
 {
   "name": "alexa-skill-<%= fileName %>",
   "version": "0.0.0",
-  "main": "dist/<%= fileName %>.js",
+  "description": "An Alexa Skill for AWS Lambda",
+  "main": "lib/index.js",
   "files": [
-    "dist"
+    "dist", "lib"
   ],
   "scripts": {
     "prepublish": "rm -rf ./dist && webpack -p",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "babel-loader": "^5.3.2",
+    "file-loader": "^0.8.4",
     "webpack": "^1.12.2"
   }
 }
