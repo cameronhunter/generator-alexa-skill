@@ -16,7 +16,7 @@ $ npm install -g yo generator-alexa-skill
 Make a new directory, and `cd` into it:
 
 ```
-$ mkdir alexa-skill-hello-world && cd $_
+$ mkdir alexa-skill-echo && cd $_
 ```
 
 You're now ready to generate a skill!
@@ -36,24 +36,26 @@ for more details.
 ### Example:
 
 ```
-$ yo alexa-skill hello-world
+$ yo alexa-skill echo
 $ npm install
 ```
 
-Produces a package named `alexa-skill-hello-world` with the following output:
+Produces a package named `alexa-skill-echo` with the following output:
 
 ```
 .
 ├── lib
-│   └── hello-world.js
+│   ├── index.js
+│   └── echo.js
 ├── node_modules
 ├── test
-│   └── hello-world.spec.js
+│   └── echo.spec.js
 ├── .gitignore
-├── index.js
 ├── LICENSE.md
 ├── package.json
 ├── README.md
+├── SAMPLES
+├── schema.json
 └── webpack.config.js
 ```
 
@@ -65,6 +67,6 @@ To build your skill for AWS Lambda:
 $ npm run build
 ```
 
-This creates a file `dist/<skill-name>.js` which is the compiled and minified
+This creates a file `dist/alexa-skill-<skill-name>.js` which is the compiled and minified
 skill. You can copy and paste the contents of this file directly into the AWS
 Lambda console. The module exports a single handler as `exports.<skill-name>`.
