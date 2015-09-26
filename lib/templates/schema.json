@@ -1,0 +1,10 @@
+{
+  "intents": [
+    {
+      "intent": "hello",
+      "slots": [
+        { "name": "name", "type": "LITERAL" }
+      ]
+    }
+  ]
+}
