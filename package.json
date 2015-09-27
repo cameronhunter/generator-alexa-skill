@@ -1,6 +1,6 @@
 {
   "name": "generator-alexa-skill",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A Yeoman generator for Alexa Skills to run on AWS Lambda",
   "license": "MIT",
   "main": "app/index.js",
@@ -11,7 +11,8 @@
     "url": "https://github.com/cameronhunter"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "npm test"
   },
   "files": [
     "generators"

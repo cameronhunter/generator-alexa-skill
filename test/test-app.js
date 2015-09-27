@@ -15,16 +15,17 @@ describe('alexa-skill', function () {
 
   it('creates files', function () {
     assert.file([
+      'config/webpack.config.js',
       'lib/index.js',
       'lib/test.js',
+      'test/index.spec.js',
       'test/test.spec.js',
       '.gitignore',
       'package.json',
       'LICENSE.md',
       'README.md',
       'SAMPLES',
-      'schema.json',
-      'webpack.config.js'
+      'schema.json'
     ]);
   });
 });
