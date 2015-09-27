@@ -24,7 +24,7 @@ To build the skill for use on AWS Lambda:
 npm run prepublish
 ```
 
-This creates `dist/alexa-skill-<skill-name>.js`, copy and paste the contents of the file into your AWS Lambda function. The script exports a single handler called `<skill-name>`, this is the handler name you configure your AWS Lambda function to use.
+This creates `dist/package.zip` exposing a single handler called `index.handler`, which you can upload to AWS Lambda.
 
 ## License
 
