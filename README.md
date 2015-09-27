@@ -24,7 +24,7 @@ To build the skill for use on AWS Lambda:
 npm run prepublish
 ```
 
-This creates `dist/package.zip` exposing a single handler called `index.handler`, which you can upload to AWS Lambda.
+This creates `dist/package.zip` which you can upload to AWS Lambda. The package exposes a single handler called `index.handler`.
 
 ## License
 
