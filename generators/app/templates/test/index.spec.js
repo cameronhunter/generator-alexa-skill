@@ -1,13 +1,13 @@
 import chai from "chai";
 import promised from "chai-as-promised";
-import Handler from "../lib/index";
+import handler from "../lib/index";
 
 chai.should();
 chai.use(promised);
 
 describe("LaunchRequest", function() {
   it("should say that it was launched", function() {
-    const result = Handler({ request: { type: "LaunchRequest" } });
+    const result = handler({ request: { type: "LaunchRequest" } });
     return result.should.eventually.deep.equal({
       version: "1.0",
       sessionAttributes: {},
@@ -21,7 +21,7 @@ describe("LaunchRequest", function() {
 
 describe("IntentRequest", function() {
   it("should say hello to the name provided", function() {
-    const result = Handler({
+    const result = handler({
       request: {
         type: "IntentRequest",
         intent: {
