@@ -8,13 +8,36 @@
 npm install -g yo generator-alexa-skill
 ```
 
-## Generating an Alexa Skill
+## Generating a new Alexa Skill
 
 ```bash
 yo alexa-skill
 ```
 
 This creates a brand new Alexa Skill, add your logic into `lib/<skill-name>.js` and tests into `test/<skill-name>.spec.js`.
+
+The generator creates an "Hello World" skill for you:
+
+```javascript
+import { Response } from "alexa-lambda-skill";
+
+export default class MySkill {
+  launch() {
+    return Response.say("MySkill launched!");
+  }
+
+  hello(slots) {
+    const { name = "world" } = slots;
+    return Response.say(`Hello ${name}`).card("MySkill", `Hello ${name}`);
+  }
+
+  intent(name, slots) {
+    return Promise.reject(`No handler found for intent "${name}"`);
+  }
+}
+```
+
+Also see `SAMPLES` for phrases that users may say to interact with this skill and the intent `schema.json` of user intents in JSON format that are used to build the interaction model for your skill.
 
 ## Deploying to AWS Lambda
 
