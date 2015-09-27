@@ -1,4 +1,4 @@
-# generator-alexa-skill [![Build Status](https://secure.travis-ci.org/cameronhunter/generator-alexa-skill.png?branch=master)](https://travis-ci.org/cameronhunter/generator-alexa-skill)
+# generator-alexa-skill [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
 > A [Yeoman](http://yeoman.io) generator for scaffolding an Alexa Skill for AWS Lambda
 
