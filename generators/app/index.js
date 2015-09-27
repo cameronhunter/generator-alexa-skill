@@ -48,6 +48,7 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copyTpl(this.templatePath('lib/skill.js'), this.destinationPath('lib/' + data.fileName + '.js'), data);
 
       // Create in generated 'test' dir
+      this.fs.copyTpl(this.templatePath('test/index.spec.js'), this.destinationPath('test/index.spec.js'), data);
       this.fs.copyTpl(this.templatePath('test/skill.spec.js'), this.destinationPath('test/' + data.fileName + '.spec.js'), data);
     }
   },

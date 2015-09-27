@@ -1,14 +1,14 @@
 import chai from "chai";
-import promised from "chai-as-promised";
+import promises from "chai-as-promised";
 import handler from "../lib/index";
 
-chai.should();
-chai.use(promised);
+chai.use(promises);
+const { expect } = chai;
 
 describe("LaunchRequest", function() {
   it("should say that it was launched", function() {
     const result = handler({ request: { type: "LaunchRequest" } });
-    return result.should.eventually.deep.equal({
+    return expect(result).to.eventually.deep.equal({
       version: "1.0",
       sessionAttributes: {},
       response: {
@@ -31,12 +31,13 @@ describe("IntentRequest", function() {
       }
     });
 
-    return result.should.eventually.deep.equal({
+    return expect(result).to.eventually.deep.equal({
       version: "1.0",
       sessionAttributes: {},
       response: {
         shouldEndSession: true,
-        outputSpeech: { type: "PlainText", text: "Hello echo" }
+        outputSpeech: { type: "PlainText", text: "Hello echo" },
+        card: { type: "Simple", title: "<%= className %>", content: "Hello echo" }
       }
     });
   });

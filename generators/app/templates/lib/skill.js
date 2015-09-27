@@ -7,10 +7,10 @@ export default class <%= className %> {
 
   hello(slots) {
     const { name = "world" } = slots;
-    return Response.say(`Hello ${name}`);
+    return Response.say(`Hello ${name}`).card("<%= className %>", `Hello ${name}`);
   }
 
   intent(name, slots) {
-    return Response.say(`Intent ${name} triggered. Check the card for more information.`).card(name, JSON.stringify(slots));
+    return Promise.reject(`No handler found for intent "${name}"`);
   }
 }
