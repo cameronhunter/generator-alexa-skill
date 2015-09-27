@@ -1,32 +1,31 @@
 {
   "name": "generator-alexa-skill",
-  "version": "0.1.15",
-  "description": "Generate an Alexa Skill ready for AWS Lambda",
-  "main": "lib/generators/app/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Cameron Hunter",
+  "version": "0.2.0",
+  "description": "A Yeoman generator for Alexa Skills to run on AWS Lambda",
   "license": "MIT",
+  "main": "app/index.js",
   "repository": "cameronhunter/generator-alexa-skill",
-  "preferGlobal": true,
+  "author": {
+    "name": "Cameron Hunter",
+    "email": "hello@cameronhunter.co.uk",
+    "url": "https://github.com/cameronhunter"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "generators"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
   "dependencies": {
     "lodash": "^3.10.1",
-    "yeoman-generator": "^0.20.3"
+    "yeoman-generator": "^0.19.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
   },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
-  },
-  "keywords": [
-    "alexa",
-    "lambda",
-    "skill",
-    "aws",
-    "echo",
-    "amazon",
-    "yo",
-    "yeoman",
-    "generator",
-    "yeoman-generator"
-  ]
+  "devDependencies": {
+    "mocha": "*"
+  }
 }

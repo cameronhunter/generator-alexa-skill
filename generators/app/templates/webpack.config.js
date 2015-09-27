@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = {
   entry: {
-    skill: path.join(__dirname, "index.js"),
+    skill: path.join(__dirname, "lib", "index.js"),
     schema: path.join(__dirname, "schema.json"),
     samples: path.join(__dirname, "SAMPLES")
   },
