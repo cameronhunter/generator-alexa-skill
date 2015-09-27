@@ -39,7 +39,9 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), data);
       this.fs.copy(this.templatePath('SAMPLES'), this.destinationPath('SAMPLES'));
       this.fs.copy(this.templatePath('schema.json'), this.destinationPath('schema.json'));
-      this.fs.copyTpl(this.templatePath('webpack.config.js'), this.destinationPath('webpack.config.js'), data);
+
+      // Create in generated 'config' dir
+      this.fs.copyTpl(this.templatePath('config/webpack.config.js'), this.destinationPath('config/webpack.config.js'), data);
 
       // Create in generated 'lib' dir
       this.fs.copyTpl(this.templatePath('lib/index.js'), this.destinationPath('lib/index.js'), data);

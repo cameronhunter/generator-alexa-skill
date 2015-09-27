@@ -1,12 +1,12 @@
 var path = require("path");
 
 module.exports = {
-  entry: path.join(__dirname, "lib", "index.js"),
+  entry: path.join(__dirname, "..", "lib", "index.js"),
   output: {
     libraryTarget: "commonjs",
     library: "handler",
     filename: "index.js",
-    path: path.join(__dirname, "dist")
+    path: path.join(__dirname, "..", "dist")
   },
   module: {
     loaders: [
