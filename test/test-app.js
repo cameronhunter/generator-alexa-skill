@@ -21,6 +21,7 @@ describe('alexa-skill', function () {
       'test/index.spec.js',
       'test/test.spec.js',
       '.gitignore',
+      '.travis.yml',
       'package.json',
       'LICENSE.md',
       'README.md',

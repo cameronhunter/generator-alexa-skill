@@ -36,6 +36,7 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
       this.fs.copyTpl(this.templatePath('LICENSE.md'), this.destinationPath('LICENSE.md'), data);
       this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), data);
+      this.fs.copy(this.templatePath('_travis.yml'), this.destinationPath('.travis.yml'));
       this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), data);
       this.fs.copy(this.templatePath('SAMPLES'), this.destinationPath('SAMPLES'));
       this.fs.copy(this.templatePath('schema.json'), this.destinationPath('schema.json'));
