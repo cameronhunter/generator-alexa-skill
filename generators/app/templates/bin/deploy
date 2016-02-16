@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var fs = require("fs");
+var path = require("path");
+var lambda = require("node-aws-lambda");
+var argv = require("yargs")
+            .option('c', { alias: 'config', demand: true })
+            .option('p', { alias: 'package', demand: true })
+            .argv;
+
+var conf = path.join(process.cwd(), argv.c);
+var pack = path.join(process.cwd(), argv.p);
+
+if (!fs.existsSync(conf)) throw "Configuration file does not exist";
+if (!fs.existsSync(pack)) throw "Package file does not exist";
+
+lambda.deploy(pack, require(conf), function(error) {
+  if (error) {
+    console.error("Deployment failed:", error);
+    process.exit(1);
+  } else {
+    console.info("Deployment successful");
+    process.exit(0);
+  }
+});

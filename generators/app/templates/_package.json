@@ -8,11 +8,11 @@
     "lib"
   ],
   "scripts": {
-    "build:pack": "rm -rf ./dist && webpack --config ./config/webpack.config.js -p",
-    "build:zip": "bestzip dist/alexa-skill-<%= fileName %>.zip dist/index.js LICENSE.md README.md SAMPLES schema.json",
-    "build": "npm run build:pack && npm run build:zip",
+    "build:pack": "rm -rf dist && webpack --config config/webpack.config.js -p",
+    "build:zip": "bestzip dist/package.zip dist/index.js LICENSE.md README.md SAMPLES schema.json",
+    "build": "npm test && npm run build:pack && npm run build:zip",
     "test": "mocha --compilers js:babel/register --reporter progress",
-    "prepublish": "npm test && npm run build"
+    "deploy": "npm run build && bin/deploy --config config/lambda.config.js --package dist/package.zip"
   },
   "dependencies": {
     "alexa-lambda-skill": "*"
@@ -24,6 +24,8 @@
     "chai": "^3.3.0",
     "chai-as-promised": "^5.1.0",
     "mocha": "^2.3.3",
-    "webpack": "^1.12.2"
+    "node-aws-lambda": "^0.1.6",
+    "webpack": "^1.12.2",
+    "yargs": "^3.26.0"
   }
 }

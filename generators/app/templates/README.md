@@ -11,7 +11,15 @@ npm test
 ## Build
 
 ```bash
-npm run prepublish
+npm run build
 ```
 
-This creates `dist/package.zip` which you can upload to AWS Lambda. The package exposes a single handler called `index.handler`.
+This creates `dist/package.zip` containing the compiled skill exposing a single function `index.handler`. The package also contains `LICENSE.md`, `README.md`, `SAMPLES` and `schema.json`.
+
+## Deploy
+
+```bash
+npm run deploy
+```
+
+This deploys the package to AWS Lambda. You can check it out in the [AWS console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/alexa-skill-<%= fileName %>).

@@ -2,6 +2,7 @@ var path = require("path");
 
 module.exports = {
   entry: path.join(__dirname, "..", "lib", "index.js"),
+  target: "node",
   output: {
     libraryTarget: "commonjs",
     library: "handler",

@@ -39,15 +39,21 @@ export default class MySkill {
 
 Also see `SAMPLES` for phrases that users may say to interact with this skill and the intent `schema.json` of user intents in JSON format that are used to build the interaction model for your skill.
 
-## Deploying to AWS Lambda
-
-To build the skill for use on AWS Lambda:
+## Building a deployment package
 
 ```bash
-npm run prepublish
+npm run build
 ```
 
-This creates `dist/package.zip` which you can upload to AWS Lambda. The package exposes a single handler called `index.handler`.
+This creates `dist/package.zip` containing the compiled skill exposing a single function `index.handler`. The package also contains `LICENSE.md`, `README.md`, `SAMPLES` and `schema.json`.
+
+## Deploying to AWS Lambda
+
+```bash
+npm run deploy
+```
+
+This deploys the package to AWS Lambda.
 
 ## License
 

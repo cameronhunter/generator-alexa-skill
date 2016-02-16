@@ -12,15 +12,26 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the amazing ' + chalk.red('Alexa Skill') + ' generator!'
     ));
 
-    var prompts = [{
-      type: 'input',
-      name: 'name',
-      message: 'Your skill name',
-      required: true
-    }];
+    var prompts = [
+      { type: 'input', name: 'name', message: 'Your skill name', default: this.appname },
+      { type: 'confirm', name: 'aws', message: 'Do you have an AWS access and secret key?' },
+      { type: 'input', name: 'accessKeyId', message: "AWS access key", when: function(props) { return props.aws; } },
+      { type: 'input', name: 'secretAccessKey', message: "AWS secret key", when: function(props) { return props.aws; } },
+      { type: 'confirm', name: 'roleSetup', message: 'Have you set up an AWS Lambda execution role?', when: function(props) { return props.aws; } },
+      { type: 'input', name: 'role', message: "Role ARN", when: function(props) { return props.roleSetup; } }
+    ];
 
     this.prompt(prompts, function(props) {
       this.props = props;
+
+      if (!props.aws) {
+        this.log(chalk.bold.white("\nYou can set your AWS access and secret keys later in " + chalk.cyan("config/lambda.config.js\n")));
+      }
+
+      if (props.aws && !props.roleSetup) {
+        this.log(chalk.bold.white("\nYou can set your AWS Lambda execution role ;ater in " + chalk.cyan("config/lambda.config.js\n")));
+      }
+
       done();
     }.bind(this));
   },
@@ -30,7 +41,10 @@ module.exports = yeoman.generators.Base.extend({
       var data = {
         name: this.props.name,
         fileName: _.kebabCase(this.props.name),
-        className: _.capitalize(_.camelCase(this.props.name))
+        className: _.capitalize(_.camelCase(this.props.name)),
+        accessKeyId: this.props.accessKeyId || "",
+        secretAccessKey: this.props.secretAccessKey || "",
+        role: this.props.role || "",
       };
 
       this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
@@ -41,7 +55,11 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copy(this.templatePath('SAMPLES'), this.destinationPath('SAMPLES'));
       this.fs.copy(this.templatePath('schema.json'), this.destinationPath('schema.json'));
 
+      // Create in generated 'bin' dir
+      this.fs.copy(this.templatePath('bin/deploy'), this.destinationPath('bin/deploy'));
+
       // Create in generated 'config' dir
+      this.fs.copyTpl(this.templatePath('config/lambda.config.js'), this.destinationPath('config/lambda.config.js'), data);
       this.fs.copyTpl(this.templatePath('config/webpack.config.js'), this.destinationPath('config/webpack.config.js'), data);
 
       // Create in generated 'lib' dir
