@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build:pack": "rm -rf ./dist && webpack --config ./config/webpack.config.js -p",
-    "build:zip": "bestzip dist/package.zip dist/index.js LICENSE.md README.md SAMPLES schema.json",
+    "build:zip": "bestzip dist/alexa-skill-<%= fileName %>.zip dist/index.js LICENSE.md README.md SAMPLES schema.json",
     "build": "npm run build:pack && npm run build:zip",
     "test": "mocha --compilers js:babel/register --reporter progress",
     "prepublish": "npm test && npm run build"
