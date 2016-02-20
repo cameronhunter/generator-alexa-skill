@@ -15,21 +15,21 @@ module.exports = yeoman.generators.Base.extend({
     var prompts = [
       { type: 'input', name: 'name', message: 'Your skill name', default: this.appname },
       { type: 'confirm', name: 'aws', message: 'Do you have an AWS access and secret key?' },
-      { type: 'input', name: 'accessKeyId', message: "AWS access key", when: function(props) { return props.aws; } },
-      { type: 'input', name: 'secretAccessKey', message: "AWS secret key", when: function(props) { return props.aws; } },
+      { type: 'input', name: 'accessKeyId', message: 'AWS access key', when: function(props) { return props.aws; } },
+      { type: 'input', name: 'secretAccessKey', message: 'AWS secret key', when: function(props) { return props.aws; } },
       { type: 'confirm', name: 'roleSetup', message: 'Have you set up an AWS Lambda execution role?', when: function(props) { return props.aws; } },
-      { type: 'input', name: 'role', message: "Role ARN", when: function(props) { return props.roleSetup; } }
+      { type: 'input', name: 'role', message: 'Role ARN', when: function(props) { return props.roleSetup; } }
     ];
 
     this.prompt(prompts, function(props) {
       this.props = props;
 
       if (!props.aws) {
-        this.log(chalk.bold.white("\nYou can set your AWS access and secret keys later in " + chalk.cyan("config/lambda.config.js\n")));
+        this.log(chalk.bold.white('\nYou can set your AWS access and secret keys later in ' + chalk.cyan('config/lambda.config.js\n')));
       }
 
       if (props.aws && !props.roleSetup) {
-        this.log(chalk.bold.white("\nYou can set your AWS Lambda execution role later in " + chalk.cyan("config/lambda.config.js\n")));
+        this.log(chalk.bold.white('\nYou can set your AWS Lambda execution role later in ' + chalk.cyan('config/lambda.config.js\n')));
       }
 
       done();
@@ -42,9 +42,9 @@ module.exports = yeoman.generators.Base.extend({
         name: this.props.name,
         fileName: _.kebabCase(this.props.name),
         className: _.capitalize(_.camelCase(this.props.name)),
-        accessKeyId: this.props.accessKeyId || "",
-        secretAccessKey: this.props.secretAccessKey || "",
-        role: this.props.role || "",
+        accessKeyId: this.props.accessKeyId || '',
+        secretAccessKey: this.props.secretAccessKey || '',
+        role: this.props.role || '',
       };
 
       this.fs.copy(this.templatePath('_babelrc'), this.destinationPath('.babelrc'));
