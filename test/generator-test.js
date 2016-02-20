@@ -3,11 +3,14 @@ import path from 'path';
 import generator from 'yeoman-test';
 import assert from 'yeoman-assert';
 
-test.before.cb(t => {
-  generator.run(path.join(__dirname, '..', 'generators', 'app'))
-           .withOptions({ skipInstall: true })
-           .withPrompts({ name: 'test' })
-           .on('end', t.end);
+test.before(() => {
+  return new Promise((resolve, reject) => {
+    generator.run(path.join(__dirname, '..', 'generators', 'app'))
+             .withOptions({ skipInstall: true })
+             .withPrompts({ name: 'test' })
+             .on('end', resolve)
+             .on('error', reject);
+  });
 });
 
 test('Generator', () => {
