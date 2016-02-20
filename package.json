@@ -14,7 +14,8 @@
     "lint": "eslint generators/**/*.js test/**/*.js",
     "test": "ava test/*.js",
     "posttest": "npm run lint",
-    "prepublish": "npm test"
+    "preversion": "npm test",
+    "postversion": "git push --tags"
   },
   "files": [
     "generators"
