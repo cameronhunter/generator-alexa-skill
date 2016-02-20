@@ -16,9 +16,7 @@ npm install -g yo generator-alexa-skill
 yo alexa-skill
 ```
 
-This creates a brand new Alexa Skill, add your logic into `src/index.js` and tests into `test/index-test.js`.
-
-The generator creates an 'Hello World' skill for you:
+This creates a brand new Alexa Skill, add your logic into `src/index.js` and tests into `test/index-test.js`. The template is a HelloWorld skill:
 
 ```javascript
 import { Skill, Launch, Intent, Response } from 'alexa-lambda-skill';
@@ -36,15 +34,17 @@ export default class HelloWorld {
     return Response.say(`Hello ${name}`).card('HelloWorld', `Hello ${name}`);
   }
 
+  @Intent('AMAZON.HelpIntent')
+  help() {
+    return Response.ask('I say hello to people. Who should I say hello to?').reprompt('Who should I say hello to?');
+  }
+
+  @Intent('AMAZON.CancelIntent', 'AMAZON.StopIntent')
+  stop() {
+    return Response.say('Goodbye');
+  }
+
 }
 ```
 
-Also see `SAMPLES` for phrases that users may say to interact with this skill and the intent `schema.json` of user intents in JSON format that are used to build the interaction model for your skill.
-
-## Deploying to AWS Lambda
-
-```bash
-npm run deploy
-```
-
-This creates `build/package.zip` containing the compiled skill exposing a single function `index.handler`. This package is then deployed to AWS Lambda.
+Also see `SAMPLES` for phrases that users may say to interact with this skill and the schema of user intents in `schema.json` that are used to build the interaction model for your skill.
