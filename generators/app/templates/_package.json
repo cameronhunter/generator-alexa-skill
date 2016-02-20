@@ -19,7 +19,7 @@
     "deploy": "bin/deploy --config config/lambda.config.js --package build/package.zip"
   },
   "devDependencies": {
-    "alexa-lambda-skill": "^2.0.0",
+    "alexa-lambda-skill": "^2.0.2",
     "ava": "^0.12.0",
     "babel-eslint": "^5.0.0",
     "babel-loader": "^6.2.2",
