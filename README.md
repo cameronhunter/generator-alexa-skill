@@ -14,38 +14,30 @@ npm install -g yo generator-alexa-skill
 yo alexa-skill
 ```
 
-This creates a brand new Alexa Skill, add your logic into `lib/<skill-name>.js` and tests into `test/<skill-name>.spec.js`.
+This creates a brand new Alexa Skill, add your logic into `src/index.js` and tests into `test/index-test.js`.
 
 The generator creates an "Hello World" skill for you:
 
 ```javascript
-import { Response } from "alexa-lambda-skill";
+import { Skill, Launch, Intent, Response } from 'alexa-lambda-skill';
 
-export default class MySkill {
+@Skill
+export default class HelloWorld {
+
+  @Launch
   launch() {
-    return Response.say("MySkill launched!");
+    return Response.say("HelloWorld launched!");
   }
 
-  hello(slots) {
-    const { name = "world" } = slots;
-    return Response.say(`Hello ${name}`).card("MySkill", `Hello ${name}`);
+  @Intent('hello')
+  hello({ name = "world" }) {
+    return Response.say(`Hello ${name}`).card("HelloWorld", `Hello ${name}`);
   }
 
-  intent(name, slots) {
-    return Promise.reject(`No handler found for intent "${name}"`);
-  }
 }
 ```
 
 Also see `SAMPLES` for phrases that users may say to interact with this skill and the intent `schema.json` of user intents in JSON format that are used to build the interaction model for your skill.
-
-## Building a deployment package
-
-```bash
-npm run build
-```
-
-This creates `dist/package.zip` containing the compiled skill exposing a single function `index.handler`. The package also contains `LICENSE.md`, `README.md`, `SAMPLES` and `schema.json`.
 
 ## Deploying to AWS Lambda
 
@@ -53,7 +45,7 @@ This creates `dist/package.zip` containing the compiled skill exposing a single 
 npm run deploy
 ```
 
-This deploys the package to AWS Lambda.
+This creates `build/package.zip` containing the compiled skill exposing a single function `index.handler`. This package is then deployed to AWS Lambda.
 
 ## License
 

@@ -2,30 +2,39 @@
   "name": "alexa-skill-<%= fileName %>",
   "version": "0.0.0",
   "description": "An Alexa Skill for AWS Lambda",
-  "main": "lib/index.js",
+  "main": "build/index.js",
   "files": [
-    "dist",
-    "lib"
+    "build",
+    "src"
   ],
   "scripts": {
-    "build:pack": "rm -rf dist && webpack --config config/webpack.config.js -p",
-    "build:zip": "bestzip dist/package.zip dist/index.js LICENSE.md README.md SAMPLES schema.json",
-    "build": "npm test && npm run build:pack && npm run build:zip",
-    "test": "mocha --compilers js:babel/register --reporter progress",
-    "deploy": "npm run build && bin/deploy --config config/lambda.config.js --package dist/package.zip"
-  },
-  "dependencies": {
-    "alexa-lambda-skill": "*"
+    "lint": "eslint src/**/*.js test/**/*.js",
+    "build": "webpack --config config/webpack.config.js -p",
+    "pretest": "npm run build",
+    "test": "ava",
+    "posttest": "npm run lint",
+    "prepackage": "npm run test",
+    "package": "bestzip build/package.zip build/index.js",
+    "predeploy": "npm run package",
+    "deploy": "bin/deploy --config config/lambda.config.js --package build/package.zip"
   },
   "devDependencies": {
-    "babel": "^5.8.23",
-    "babel-loader": "^5.3.2",
+    "alexa-lambda-skill": "^1.1.0",
+    "ava": "^0.12.0",
+    "babel-eslint": "^5.0.0",
+    "babel-loader": "^6.2.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
     "bestzip": "^1.1.2",
-    "chai": "^3.3.0",
-    "chai-as-promised": "^5.1.0",
-    "mocha": "^2.3.3",
+    "bluebird": "^3.3.1",
+    "eslint": "^2.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "json-loader": "^0.5.4",
     "node-aws-lambda": "^0.1.6",
-    "webpack": "^1.12.2",
+    "object-values": "^1.0.0",
+    "object.entries": "^1.0.3",
+    "webpack": "^1.12.13",
     "yargs": "^3.26.0"
   }
 }

@@ -29,7 +29,7 @@ module.exports = yeoman.generators.Base.extend({
       }
 
       if (props.aws && !props.roleSetup) {
-        this.log(chalk.bold.white("\nYou can set your AWS Lambda execution role ;ater in " + chalk.cyan("config/lambda.config.js\n")));
+        this.log(chalk.bold.white("\nYou can set your AWS Lambda execution role later in " + chalk.cyan("config/lambda.config.js\n")));
       }
 
       done();
@@ -47,6 +47,8 @@ module.exports = yeoman.generators.Base.extend({
         role: this.props.role || "",
       };
 
+      this.fs.copy(this.templatePath('_babelrc'), this.destinationPath('.babelrc'));
+      this.fs.copy(this.templatePath('_eslintrc.json'), this.destinationPath('.eslintrc.json'));
       this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
       this.fs.copyTpl(this.templatePath('LICENSE.md'), this.destinationPath('LICENSE.md'), data);
       this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), data);
@@ -62,13 +64,11 @@ module.exports = yeoman.generators.Base.extend({
       this.fs.copyTpl(this.templatePath('config/lambda.config.js'), this.destinationPath('config/lambda.config.js'), data);
       this.fs.copyTpl(this.templatePath('config/webpack.config.js'), this.destinationPath('config/webpack.config.js'), data);
 
-      // Create in generated 'lib' dir
-      this.fs.copyTpl(this.templatePath('lib/index.js'), this.destinationPath('lib/index.js'), data);
-      this.fs.copyTpl(this.templatePath('lib/skill.js'), this.destinationPath('lib/' + data.fileName + '.js'), data);
+      // Create in generated 'src' dir
+      this.fs.copyTpl(this.templatePath('src/index.js'), this.destinationPath('src/index.js'), data);
 
       // Create in generated 'test' dir
-      this.fs.copyTpl(this.templatePath('test/index.spec.js'), this.destinationPath('test/index.spec.js'), data);
-      this.fs.copyTpl(this.templatePath('test/skill.spec.js'), this.destinationPath('test/' + data.fileName + '.spec.js'), data);
+      this.fs.copyTpl(this.templatePath('test/index-test.js'), this.destinationPath('test/index-test.js'), data);
     }
   },
 

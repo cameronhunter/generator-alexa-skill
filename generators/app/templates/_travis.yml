@@ -1,6 +1,5 @@
 sudo: false
 language: node_js
 node_js:
-  - 'iojs'
-  - '0.12'
-  - '0.10'
+  - 'stable'
+  - '0.10.36' # Version of Node used in AWS Lambda: http://docs.aws.amazon.com/lambda/latest/dg/current-supported-versions.html
