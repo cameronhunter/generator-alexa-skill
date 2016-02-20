@@ -1,6 +1,7 @@
 import test from 'ava';
 import path from 'path';
-import { assert, test as generator } from 'yeoman-generator';
+import generator from 'yeoman-test';
+import assert from 'yeoman-assert';
 
 test.before.cb(t => {
   generator.run(path.join(__dirname, '..', 'generators', 'app'))
