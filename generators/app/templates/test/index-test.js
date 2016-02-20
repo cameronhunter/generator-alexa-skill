@@ -3,12 +3,12 @@ import { Request } from 'alexa-lambda-skill';
 import { handler } from '..';
 
 // AWS Lambda requires a CommonJS export named 'handler'
-const <%= className %> = handler.default;
+const Skill = handler.default;
 
 test('LaunchRequest', t => {
   const event = Request.launchRequest().build();
 
-  return <%= className %>(event).then(response => {
+  return Skill(event).then(response => {
     t.same(response, {
       version: '1.0',
       response: {
@@ -22,7 +22,7 @@ test('LaunchRequest', t => {
 test('Hello intent', t => {
   const event = Request.intent('hello', { name: 'world' }).build();
 
-  return <%= className %>(event).then(response => {
+  return Skill(event).then(response => {
     t.same(response, {
       version: '1.0',
       response: {
