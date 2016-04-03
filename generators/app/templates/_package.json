@@ -3,20 +3,19 @@
   "version": "0.0.0",
   "description": "An Alexa Skill for AWS Lambda",
   "main": "build/index.js",
-  "files": [
-    "build",
-    "src"
-  ],
   "scripts": {
     "lint": "eslint src/**/*.js test/**/*.js",
     "build": "rollup --config config/rollup.config.js",
     "pretest": "npm run build",
-    "test": "ava",
+    "test": "ava --require babel-register --require babel-polyfill",
     "posttest": "npm run lint",
     "prepackage": "npm run test",
     "package": "bestzip build/package.zip build/index.js",
     "predeploy": "npm run package",
     "deploy": "bin/deploy --config config/lambda.config.js --package build/package.zip"
+  },
+  "ava": {
+    "babel": "inherit"
   },
   "devDependencies": {
     "alexa-lambda-skill": "^3.0.3",
@@ -24,13 +23,14 @@
     "ava": "^0.13.0",
     "babel-eslint": "^6.0.2",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-polyfill": "^6.7.4",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-es2015-rollup": "^1.1.1",
     "babel-preset-stage-1": "^6.5.0",
+    "babel-register": "^6.7.2",
     "bestzip": "^1.1.3",
     "bluebird": "^3.3.4",
     "eslint": "^2.6.0",
-    "isomorphic-fetch": "^2.2.1",
     "node-aws-lambda": "^0.1.8",
     "rollup": "^0.25.7",
     "rollup-plugin-babel": "^2.4.0",
@@ -38,6 +38,10 @@
     "rollup-plugin-uglify": "^0.3.1",
     "yargs": "^4.3.2"
   },
+  "files": [
+    "build",
+    "src"
+  ],
   "keywords": [
     "alexa",
     "alexa-skill",

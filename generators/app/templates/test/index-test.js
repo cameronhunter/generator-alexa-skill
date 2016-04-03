@@ -1,8 +1,8 @@
 import test from 'ava';
+import handler from '..';
 import { Request } from 'alexa-lambda-skill';
-import { handler } from '..';
 
-// AWS Lambda requires a CommonJS export named 'handler'
+// AWS Lambda requires a CommonJS export
 const Skill = handler.default;
 
 test('LaunchRequest', t => {
