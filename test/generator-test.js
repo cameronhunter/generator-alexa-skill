@@ -17,10 +17,11 @@ test('Generator', () => {
   assert.file([
     'bin/deploy',
     'config/lambda.config.js',
-    'config/webpack.config.js',
+    'config/rollup.config.js',
     'src/index.js',
     'test/index-test.js',
     '.babelrc',
+    '.eslintrc.json',
     '.gitignore',
     '.travis.yml',
     'package.json',
