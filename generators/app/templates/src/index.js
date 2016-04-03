@@ -1,4 +1,5 @@
 import Response from 'alexa-response';
+import { ssml } from 'alexa-ssml';
 import { Skill, Launch, Intent } from 'alexa-lambda-skill';
 
 @Skill
@@ -21,7 +22,7 @@ export default class <%= className %> {
 
   @Intent('AMAZON.CancelIntent', 'AMAZON.StopIntent')
   stop() {
-    return Response.say('Goodbye');
+    return Response.say(<speak>Goodbye!</speak>);
   }
 
 }
