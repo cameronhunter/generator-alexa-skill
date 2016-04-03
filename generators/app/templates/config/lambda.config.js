@@ -7,5 +7,5 @@ module.exports = {
   functionName: Package.name,
   description: Package.description + " (version " + Package.version + ")",
   region: "us-east-1",
-  handler: "index.handler"
+  handler: "exports.default"
 };
