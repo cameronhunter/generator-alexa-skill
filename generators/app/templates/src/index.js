@@ -11,7 +11,7 @@ export default class <%= className %> {
 
   @Intent('hello')
   hello({ name = 'world' }) {
-    return Response.say(`Hello ${name}`).card({ title:'Alexaskilltest', content:`Hello ${name}` });
+    return Response.say(`Hello ${name}`).card({ title:'<%= className %>', content:`Hello ${name}` });
   }
 
   @Intent('AMAZON.HelpIntent')
