@@ -1,5 +1,5 @@
 {
-  "name": "alexa-skill-<%= fileName %>",
+  "name": "<%= fileName %>",
   "version": "0.0.0",
   "description": "An Alexa Skill for AWS Lambda",
   "main": "build/index.js",
