@@ -1,4 +1,5 @@
-import { Skill, Launch, Intent, Response } from 'alexa-lambda-skill';
+import Response from 'alexa-response';
+import { Skill, Launch, Intent } from 'alexa-lambda-skill';
 
 @Skill
 export default class <%= className %> {

@@ -62,7 +62,7 @@ module.exports = yeoman.Base.extend({
 
       // Create in generated 'config' dir
       this.fs.copyTpl(this.templatePath('config/lambda.config.js'), this.destinationPath('config/lambda.config.js'), data);
-      this.fs.copyTpl(this.templatePath('config/webpack.config.js'), this.destinationPath('config/webpack.config.js'), data);
+      this.fs.copyTpl(this.templatePath('config/rollup.config.js'), this.destinationPath('config/rollup.config.js'), data);
 
       // Create in generated 'src' dir
       this.fs.copyTpl(this.templatePath('src/index.js'), this.destinationPath('src/index.js'), data);
