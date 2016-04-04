@@ -5,6 +5,7 @@ const path = (...parts) => Path.join(__dirname, '..', ...parts);
 
 export default {
   entry: ['babel-polyfill', path('src', 'index.js')],
+  devtool: 'source-map',
   target: 'node',
   output: {
     libraryTarget: 'commonjs',

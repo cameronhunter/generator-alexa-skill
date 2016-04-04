@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src/**/*.js test/**/*.js",
     "build": "npm-run-all --parallel build:skill build:utterances",
-    "build:skill": "webpack --config config/webpack.config.babel.js",
+    "build:skill": "webpack -p --config config/webpack.config.babel.js",
     "build:utterances": "bin/utterances --schema model/schema.json --utterances model/UTTERANCES --dictionary model/dictionary.json > build/UTTERANCES",
     "pretest": "npm run build",
     "test": "ava",
