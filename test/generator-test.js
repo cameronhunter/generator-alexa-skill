@@ -16,9 +16,14 @@ test.before(() => {
 test('Generator', () => {
   assert.file([
     'bin/deploy',
+    'bin/utterances',
     'config/lambda.config.js',
-    'config/rollup.config.js',
+    'config/webpack.config.babel.js',
+    'model/dictionary.json',
+    'model/schema.json',
+    'model/UTTERANCES',
     'src/index.js',
+    'src/test.js',
     'test/index-test.js',
     '.babelrc',
     '.eslintrc.json',
@@ -26,8 +31,6 @@ test('Generator', () => {
     '.travis.yml',
     'package.json',
     'LICENSE.md',
-    'README.md',
-    'SAMPLES',
-    'schema.json'
+    'README.md'
   ]);
 });

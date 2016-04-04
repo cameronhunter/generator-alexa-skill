@@ -1,0 +1,33 @@
+#!/usr/bin/env babel-node
+
+import fs from 'fs';
+import Path from 'path';
+import Utterances from 'alexa-utterances';
+import nomnom from 'nomnom';
+
+const loadFile = (transform = i => i) => (filepath) => transform(fs.readFileSync(Path.join(process.cwd(), filepath), 'UTF-8'));
+
+const {
+  schema = {},
+  utterances = [],
+  dictionary = {}
+} = nomnom
+      .script('utterances')
+      .option('schema', { required: true, transform: loadFile(JSON.parse) })
+      .option('utterances', { required: true, transform: loadFile(file => file.split('\n')) })
+      .option('dictionary', { transform: loadFile(JSON.parse) })
+      .parse();
+
+const flatten = (state, items) => {
+  return items ? [...state, ...(Array.isArray(items) ? items : [items])] : state;
+};
+
+const toMap = (key, value) => (state, object) => {
+  return { ...state, [object[key]]: object[value] };
+};
+
+const slots = schema.intents.map(_ => _.slots).reduce(flatten, []).reduce(toMap('name', 'type'), {});
+
+utterances.map(utterance => Utterances(utterance, slots, dictionary)).reduce(flatten, []).forEach(utterance => {
+  console.log(utterance);
+});

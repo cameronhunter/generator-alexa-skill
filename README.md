@@ -19,7 +19,8 @@ yo alexa-skill
 This creates a brand new Alexa Skill, add your logic into `src/index.js` and tests into `test/index-test.js`. The template is a HelloWorld skill:
 
 ```javascript
-import { Skill, Launch, Intent, Response } from 'alexa-lambda-skill';
+import Response from 'alexa-response';
+import { Skill, Launch, Intent } from 'alexa-lambda-skill';
 
 @Skill
 export default class HelloWorld {
@@ -31,7 +32,7 @@ export default class HelloWorld {
 
   @Intent('hello')
   hello({ name = 'world' }) {
-    return Response.say(`Hello ${name}`).card('HelloWorld', `Hello ${name}`);
+    return Response.say(`Hello ${name}`).card({ title: 'HelloWorld', content: `Hello ${name}` });
   }
 
   @Intent('AMAZON.HelpIntent')
@@ -47,4 +48,4 @@ export default class HelloWorld {
 }
 ```
 
-Also see `SAMPLES` for phrases that users may say to interact with this skill and the schema of user intents in `schema.json` that are used to build the interaction model for your skill.
+Also see `model/UTTERANCES` for phrases that users may say to interact with this skill and the schema of user intents in `model/schema.json` that are used to build the interaction model for your skill.

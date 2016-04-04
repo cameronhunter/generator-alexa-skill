@@ -1,25 +1,25 @@
-#!/usr/bin/env node
+#!/usr/bin/env babel-node
 
-var fs = require("fs");
-var path = require("path");
-var lambda = require("node-aws-lambda");
-var argv = require("yargs")
-            .option('c', { alias: 'config', demand: true })
-            .option('p', { alias: 'package', demand: true })
-            .argv;
+import fs from 'fs';
+import path from 'path';
+import lambda from 'node-aws-lambda';
+import nomnom from 'nomnom';
 
-var conf = path.join(process.cwd(), argv.c);
-var pack = path.join(process.cwd(), argv.p);
+const exists = (filename) => fs.existsSync(filename) ? undefined : `${filename} does not exist`;
+const requireFile = (filename) => require(path.join(process.cwd(), filename));
 
-if (!fs.existsSync(conf)) throw "Configuration file does not exist";
-if (!fs.existsSync(pack)) throw "Package file does not exist";
+const { config, zip } = nomnom
+                          .script('deploy')
+                          .option('config', { required: true, callback: exists, transform: requireFile })
+                          .option('zip', { full: 'package', abbr: 'p', required: true, callback: exists })
+                          .parse();
 
-lambda.deploy(pack, require(conf), function(error) {
+lambda.deploy(zip, config, function(error) {
   if (error) {
-    console.error("Deployment failed:", error);
+    console.error('Deployment failed:', error);
     process.exit(1);
   } else {
-    console.info("Deployment successful");
+    console.info('Deployment successful');
     process.exit(0);
   }
 });

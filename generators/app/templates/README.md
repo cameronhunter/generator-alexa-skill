@@ -14,4 +14,4 @@ npm test
 npm run deploy
 ```
 
-This creates `build/package.zip` containing the compiled skill exposing a single function `exports.default`. This package is deployed to AWS Lambda. You can check it out in the [AWS console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/<%= fileName %>).
+This creates `build/package.zip` containing the compiled skill exposing a single function `index.handler`. This package is deployed to AWS Lambda. You can check it out in the [AWS console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/<%= fileName %>).
