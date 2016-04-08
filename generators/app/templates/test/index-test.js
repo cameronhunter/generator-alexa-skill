@@ -1,6 +1,6 @@
 import test from 'ava';
 import { handler as Skill } from '..';
-import { Request } from 'alexa-lambda-skill';
+import { Request } from 'alexa-annotations';
 
 test('LaunchRequest', t => {
   const event = Request.launchRequest().build();
