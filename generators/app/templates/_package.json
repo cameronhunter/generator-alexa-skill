@@ -20,11 +20,11 @@
     "babel": "inherit"
   },
   "devDependencies": {
-    "alexa-lambda-skill": "^3.0.3",
+    "alexa-annotations": "^4.0.1",
     "alexa-response": "^3.0.1",
     "alexa-ssml": "^0.5.0",
     "alexa-utterances": "^0.1.0",
-    "ava": "^0.13.0",
+    "ava": "^0.14.0",
     "babel-cli": "^6.6.5",
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.4",
