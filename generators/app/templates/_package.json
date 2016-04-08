@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "alexa-annotations": "^4.0.1",
-    "alexa-response": "^3.0.1",
+    "alexa-response": "^3.1.1",
     "alexa-ssml": "^0.5.0",
     "alexa-utterances": "^0.1.0",
     "ava": "^0.14.0",
