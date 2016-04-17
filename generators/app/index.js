@@ -50,7 +50,6 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(this.templatePath('_babelrc'), this.destinationPath('.babelrc'));
       this.fs.copy(this.templatePath('_eslintrc.json'), this.destinationPath('.eslintrc.json'));
       this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
-      this.fs.copyTpl(this.templatePath('LICENSE.md'), this.destinationPath('LICENSE.md'), data);
       this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), data);
       this.fs.copy(this.templatePath('_travis.yml'), this.destinationPath('.travis.yml'));
       this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), data);

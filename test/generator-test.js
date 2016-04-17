@@ -30,7 +30,6 @@ test('Generator', () => {
     '.gitignore',
     '.travis.yml',
     'package.json',
-    'LICENSE.md',
     'README.md'
   ]);
 });
