@@ -32,7 +32,7 @@
   "devDependencies": {
     "ava": "^0.14.0",
     "babel-eslint": "^6.0.4",
-    "eslint": "^2.8.0",
+    "eslint": "^3.7.0",
     "yeoman-assert": "^2.2.1",
     "yeoman-test": "^1.1.0"
   }
