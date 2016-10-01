@@ -1,6 +1,6 @@
 {
   "name": "generator-alexa-skill",
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "A Yeoman generator for Alexa Skills to run on AWS Lambda",
   "license": "MIT",
   "main": "app/index.js",
