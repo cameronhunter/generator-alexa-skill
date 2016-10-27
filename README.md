@@ -20,7 +20,7 @@ This creates a brand new Alexa Skill, add your logic into `src/index.js` and tes
 
 ```javascript
 import Response from 'alexa-response';
-import { Skill, Launch, Intent } from 'alexa-lambda-skill';
+import { Skill, Launch, Intent } from 'alexa-annotations';
 
 @Skill
 export default class HelloWorld {
