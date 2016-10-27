@@ -1,6 +1,6 @@
 import { Skill, Launch, Intent } from 'alexa-annotations';
 import { say, ask } from 'alexa-response';
-import ssml from 'alexa-jsx-ssml';
+import ssml from 'alexa-ssml-jsx';
 
 @Skill
 export default class <%= className %> {

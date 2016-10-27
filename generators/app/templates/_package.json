@@ -23,7 +23,7 @@
     "alexa-annotations": "^9.0.1",
     "alexa-response": "^4.0.1",
     "alexa-request": "^0.2.1",
-    "alexa-jsx-ssml": "^1.0.1",
+    "alexa-ssml-jsx": "^1.0.1",
     "alexa-utterances": "^0.1.0",
     "ava": "^0.14.0",
     "babel-cli": "^6.6.5",
