@@ -12,7 +12,7 @@ export default class <%= className %> {
 
   @Intent('hello')
   hello({ name = 'world' }) {
-    return say(`Hello ${name}`).card({ title:'<%= className %>', content:`Hello ${name}` });
+    return say(`Hello ${name}`).card({ title: '<%= className %>', content: `Hello ${name}` });
   }
 
   @Intent('AMAZON.HelpIntent')
