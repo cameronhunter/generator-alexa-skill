@@ -6,7 +6,7 @@ import lambda from 'node-aws-lambda';
 import nomnom from 'nomnom';
 
 const exists = (filename) => fs.existsSync(filename) ? undefined : `${filename} does not exist`;
-const requireFile = filename => require(path.join(process.cwd(), filename));
+const requireFile = (filename) => require(path.join(process.cwd(), filename));
 
 const { config, zip } = nomnom
                           .script('deploy')
